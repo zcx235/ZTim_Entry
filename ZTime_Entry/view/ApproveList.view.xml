@@ -1,0 +1,56 @@
+<core:View xmlns:core="sap.ui.core" 
+    	   xmlns:mvc="sap.ui.core.mvc" 
+    	   xmlns:me="sap.me"
+    	   xmlns="sap.m"
+		controllerName="sap.ui.ZTime_Entry.view.ApproveList" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title">
+		<content>
+		    <me:Calendar id="weekly_calendar" monthsRow="1" singleRow="true" weeksPerRow="1" changeCurrentDate="handleChangeCurrentDate" disabledWeekDays="0 1 2 3 4 5 6">
+	    
+			</me:Calendar>
+			<Table id="approve_detail">
+			    <columns>
+			        <Column hAlign="Center">
+			            <header><Label text="Personnel No." /></header>
+			        </Column>
+			        <Column hAlign="Center">
+			            <header><Label text="Name" /></header>
+			        </Column>
+			        <Column minScreenWidth="Phone"
+			             	demandPopin="true"
+			             	hAlign="Center">
+			            <header><Label text="Total Hours" /></header>
+			        </Column>
+			        <Column hAlign="Center">
+			            <header><Label text="Approve Action" /></header>
+			        </Column>
+			        <Column hAlign="Center">
+			            <header><Label text="Reject Action" /></header>
+			        </Column>
+			        <Column hAlign="Center">
+			            <header><Label text="Reject Reason" /></header>
+			        </Column>
+			    </columns>
+			</Table>    
+<!--  			<List>
+			    <StandardListItem text="50">
+			        <customData>
+			            <CustomData key="1" value="8">
+			                oEvent.getSource().getCustomData()[0].getValue()
+			            </CustomData>
+			        </customData>
+			    </StandardListItem>
+			</List>   -->
+		</content>
+		<footer>
+		    <Bar>
+		        <contentRight>
+		            <Button id="submit_bt"
+		                	text="Submit"
+		                	icon="sap-icon://collapse-group" 
+		                	press="handleSubmit"/>
+		        </contentRight>
+		    </Bar>
+		</footer> 
+	</Page>
+</core:View>

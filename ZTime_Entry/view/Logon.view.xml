@@ -1,0 +1,52 @@
+<core:View  xmlns:core="sap.ui.core" 
+    		xmlns:mvc="sap.ui.core.mvc" 
+    		xmlns:form="sap.ui.layout.form"
+    		xmlns="sap.m"
+		controllerName="sap.ui.ZTime_Entry.view.Logon" xmlns:html="http://www.w3.org/1999/xhtml">
+<!-- <App> 	
+		<Page title="Time Entry Login" >
+			<content> -->
+			     <html:div style="width:85%;color:#666666;margin: 0 auto" id="logon_div">        
+			<!--	    <html:div style="text-align:center;padding: 2px auto;margin:0 auto;width:50%;height:250px;color:#666666" >
+					    <html:div style="text-align:left">
+					        Username
+					    </html:div>
+					    <html:div>
+					         <Input placeholder="Enter Username ..." id="username"></Input>
+					    </html:div>
+					    <html:div style="text-align:left">
+					        <html:p style="">Password</html:p>
+					    </html:div>
+					    <html:div width="50px">
+					         <Input type="Password" placeholder="Enter Password ..." id="password"></Input>
+					    </html:div>
+						<Button text="Log In" press="handlePress" width="100%"></Button>
+					</html:div>-->
+				 	<html:table style="width:90%">
+					    <html:tr>
+					        <html:td>Username</html:td>
+					        <html:td><Input placeholder="Enter Username ..." id="username"></Input></html:td>
+					    </html:tr>
+					    <html:tr>
+					        <html:td>Password</html:td>
+					        <html:td><Input type="Password" placeholder="Enter Password ..." id="password"></Input></html:td>
+					    </html:tr>
+					    <html:tr id="errorArea" style="display:none">
+					        <html:td>
+					        </html:td>
+					        <html:td>
+					            <html:div style="color: red">
+					                <Text id="errorMsg"></Text>
+					            </html:div>
+					        </html:td>
+					    </html:tr>
+					    <html:tr>
+					        <html:td></html:td>
+					        <html:td><Button text="Login" width="70%" press="handlePress"></Button></html:td>
+					    </html:tr>
+					</html:table>    
+				</html:div>
+<!-- 			</content>
+		</Page>
+</App> -->		
+</core:View>

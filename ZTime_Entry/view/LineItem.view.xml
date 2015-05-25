@@ -1,0 +1,107 @@
+<core:View 
+    xmlns:core="sap.ui.core" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m"
+	controllerName="sap.ui.ZTime_Entry.view.LineItem" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="lineitem_page" 
+	      showNavButton="true"
+		  navButtonPress="handleNavButtonPress">
+	    <content>
+	    <l:Grid
+    defaultSpan="L12 M12 S12"
+    width="auto">
+    <l:content>
+      <f:SimpleForm id="SimpleFormChange480"
+        minWidth="1024"
+        maxContainerCols="2"
+        editable="true"
+        layout="ResponsiveGridLayout"
+        title=""
+        labelSpanL="4"
+        labelSpanM="4"
+        emptySpanL="0"
+        emptySpanM="0"
+        columnsL="2"
+        columnsM="2"
+        class="editableForm">
+        <f:content>
+          <core:Title text="Time Entry" />
+          <Label id="error_label" text="Error" visible="false" class="error"/>
+          <Text id="error_text" text="error message" visible="false" class="error"/>   
+          <Label text="Work Date" />
+          <DateTimeInput id="date" 
+              			 type="Date" 
+              			 displayFormat="yyyy-MM-dd"/>
+          <Label text="Duration" />
+          <Input id="hour" value="{CATSHOURS}"/>
+          <Label text="Att/Abs Type" />
+          <Input id="hour_type" 
+              	 value="{AWART}"
+              	 showValueHelp ="true"
+              	 valueHelpRequest="handleAwartHelp"/>
+        </f:content>
+      </f:SimpleForm>
+    </l:content>
+  </l:Grid>
+  		
+		
+	<!--  		<f:Form>
+			    <f:layout>
+			    	<f:ResponsiveGridLayout labelSpanL="3" labelSpanM="1" labelSpanS="2"
+			       					   		emptySpanL="1" emptySpanM="1" emptySpanS="1"
+			       					   		columnsL="3"   columnsM="2"	  breakpointL="800" 
+			       					   		breakpointM="400">
+			    	    
+			    	</f:ResponsiveGridLayout>
+			    </f:layout>   					   
+			    <f:formContainers>
+			        <f:FormContainer>
+			            <f:formElements>
+			                <f:FormElement label="Duration">
+			                	<f:fields>
+			                	    <Input value="8.0" width="10rem"/> 
+			                	</f:fields>
+			                </f:FormElement>
+			            </f:formElements>
+			        </f:FormContainer>
+			    </f:formContainers>
+		   </f:Form> -->
+<!--  			<ObjectHeader title="LineItem" >
+			    <attributes>
+			        <ObjectAttribute text="{
+		                			path: 'WORKDATE',
+		                			formatter: 'sap.ui.ZTime_Entry.util.Formatter.toDispalyDate'
+		                		}" />
+			        <ObjectAttribute text="{AWART}" />
+			        <ObjectAttribute text="{ATEXT}" />
+			    </attributes>
+			</ObjectHeader>   
+			<l:VerticalLayout>
+			   <l:HorizontalLayout>
+			       <Text text="Duration:"/>
+			       <Input id="hoours" value="{CATSHOURS}"/>
+			   </l:HorizontalLayout>
+			   <l:HorizontalLayout>
+			       <Text text="Duration:"/>
+			       <Input id="hoours" value="{CATSHOURS}"/>
+			   </l:HorizontalLayout> 
+			</l:VerticalLayout>	-->
+		</content>
+		<footer>
+		    <Bar>
+		        <contentRight>
+		            <Button id="bottom_button"
+		                	text="Create"
+		                	icon="sap-icon://create"
+		                	press="handlePress" />
+		            <Button id="delete_button"
+		                	text="Delete"
+		                	icon="sap-icon://delete" 
+		                	press="handleDelete" />											
+		        </contentRight>
+		    </Bar>
+		</footer>    
+	</Page>
+</core:View>

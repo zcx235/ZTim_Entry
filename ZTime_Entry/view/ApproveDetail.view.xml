@@ -1,0 +1,92 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="sap.ui.ZTime_Entry.view.ApproveDetail" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title">
+		<content>
+		    <ObjectHeader
+		    	title="{ENAME}">
+		    	<attributes>
+		    	    <ObjectAttribute title="EIN" text="{PERNR}" />
+		    	</attributes>
+			</ObjectHeader>
+			<Table id="time_detail" items="{TIME_ENTRYS}">
+			    <columns>
+			        <Column hAlign="Center">
+			            <header><Label text="Date" /></header>
+			        </Column>
+			        <Column minScreenWidth="Phone"
+			             	demandPopin="true"
+			             	hAlign="Center">
+			            <header><Label text="Hours" /></header>
+			        </Column>
+			        <Column hAlign="Center">
+			            <header><Label text="Approve Action" /></header>
+			        </Column>
+			        <Column hAlign="Center">
+			            <header><Label text="Reject Action" /></header>
+			        </Column>
+			        <Column hAlign="Center">
+			            <header><Label text="Reject Reason" /></header>
+			        </Column>
+			    </columns>
+			    <ColumnListItem vAlign="Middle">
+		        <cells>
+		            <Text text="{
+		                			path: 'WORKDATE',
+		                			formatter: 'sap.ui.ZTime_Entry.util.Formatter.toDispalyDate'
+		                		}" />
+		            
+		        <!--      <Text text="{
+		                			path: 'WORKDATE',
+		                			formatter: 'sap.ui.ZTime_Entry.util.Formatter.toDispalyDate'
+		                		}" /> -->
+		            <Text text="{CATSHOURS}" />
+		            <ToggleButton text="Approve" 
+		                		  icon="{	
+		                		  			path: 'STATUS',
+		                		  			formatter: 'sap.ui.ZTime_Entry.util.Formatter.toApproveIcon'
+		                		  		}"
+		                		  		
+		                		  pressed="{
+		                		  			path: 'STATUS',
+		                		  			formatter: 'sap.ui.ZTime_Entry.util.Formatter.toApprovePressed'
+		                		  			}"
+		                		  press="approve"/>
+		            <ToggleButton text="Reject" 
+		                		  icon="{	
+		                		  			path: 'STATUS',
+		                		  			formatter: 'sap.ui.ZTime_Entry.util.Formatter.toRejectIcon'
+		                		  		}"
+		                	  	  pressed="{
+		                		  				path: 'STATUS',
+		                		  				formatter: 'sap.ui.ZTime_Entry.util.Formatter.toRejectPressed'
+		                		  			}"
+		                		  press="reject"/>	
+		            <Select enabled="{
+		                				path: 'STATUS',
+		                				formatter: 'sap.ui.ZTime_Entry.util.Formatter.toSelectEnabled'
+		                			}"
+		                	selectedKey="{REASON}"		
+		                	items="{REJ_REASONS>/REJECT_REASONS}">
+		                <core:Item key="{REJ_REASONS>REASON}" text="{REJ_REASONS>TEXT}" />  
+		            </Select>   		  				
+		            <!--  <Input /> -->
+		        </cells>
+		    </ColumnListItem>    
+			</Table>
+		</content>
+		<footer>
+		    <Bar>
+		        <contentRight>
+		            <Button id="save_bt"
+		                	text="Save"
+		                	icon="sap-icon://save" 
+		                	press="handleSave"/>
+		            <Button id="cancel_bt"
+		                	text="Cancel"
+		                	icon="sap-icon://sys-cancel"
+		                	press="handleCancel" />
+		        </contentRight>
+		    </Bar>
+		</footer>
+	</Page>
+</core:View>

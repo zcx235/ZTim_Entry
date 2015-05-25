@@ -1,0 +1,106 @@
+<core:View 
+    xmlns:core="sap.ui.core" 
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:table="sap.ui.table" 
+    xmlns="sap.m"
+    xmlns:me="sap.me"
+		controllerName="sap.ui.ZTime_Entry.view.EmployeeDetail" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="detail_page">
+		<ObjectHeader
+		    	title="{ENAME}">
+		    	<attributes>
+		    	    <ObjectAttribute title="EIN" text="{PERNR}" />
+		    	</attributes>
+		</ObjectHeader>
+		<IconTabBar stretchContentHeight="true">
+		    <items>
+		        <IconTabFilter icon="sap-icon://hint"></IconTabFilter>
+		    </items>
+		</IconTabBar>
+		<me:Calendar id="calendar" monthsPerRow="1" singleRow="true" weeksPerRow="1" tapOnDate="selectDate"/>
+<!-- 	<table:Table id="timeentry" width="100%" rowHeight="50">
+	        <table:Column>
+	            <Label text="Date" />
+	            <table:template>
+	                <Text text="{
+		                			path: 'WORKDATE',
+		                			formatter: 'sap.ui.ZTime_Entry.util.Formatter.toDispalyDate'
+		                		}" />
+	            </table:template>
+	        </table:Column>
+	        <table:Column>
+	            <Label text="Att/Abs"/>
+	            <table:template>
+	                <Text text="{ATEXT}" />
+	            </table:template>
+	        </table:Column>
+	        <table:Column>
+	            <Label text="Hours"/>
+	            <table:template>
+	                <Text text="{CATSHOURS}" />
+	            </table:template>
+	        </table:Column>       
+		</table:Table> -->
+	  	<Table id="timeentry" items="{/TIME_ENTRY_TZONE_SET}">
+		    <columns>
+		        <Column hAlign="Center">
+		            <header><Label text="Selected for Submit" /></header>
+		        </Column>
+		        <Column minScreenWidth="Phone"
+		             	demandPopin="true"
+		             	hAlign="Center">
+		            <header><Label text="Date" /></header>
+		        </Column>
+		        <Column minScreenWidth="Phone"
+		            	demandPopin="true"
+		            	hAlign="Center">
+		            <header><Label text="Att/Abs" /></header>
+		        </Column>
+		        <Column hAlign="Right">
+		            <header><Label text="Hours" /></header>
+		        </Column>
+		        <Column hAlign="Right">
+		            <header><Label text="Status" /></header>
+		        </Column>
+		    </columns>
+  		    
+      	  	<ColumnListItem id="columnListItem" type="Navigation" press="handleLineItemPress" vAlign="Middle">
+		        <cells>
+		            <CheckBox id="submit_cb" 
+		                	  editable="{
+		                					path: 'STATUS',
+		                					formatter : 'sap.ui.ZTime_Entry.util.Formatter.statusCb'
+		                				}"></CheckBox>
+		            <Text text="{
+		                			path: 'WORKDATE',
+		                			formatter: 'sap.ui.ZTime_Entry.util.Formatter.toDispalyDate'
+		                		}" />
+		            <Text text="{ATEXT}" />
+		            <Text text="{CATSHOURS}" />
+		            <ObjectStatus icon="{
+		                					path: 'STATUS',
+				        	  				formatter : 'sap.ui.ZTime_Entry.util.Formatter.toIconAdd'
+		                				}"
+		            			  text="{
+		            			  			path : 'STATUS',
+				          					formatter : 'sap.ui.ZTime_Entry.util.Formatter.toIconText'
+		            			  		}" ></ObjectStatus>
+		        </cells>
+		    </ColumnListItem> 
+		</Table>
+		<footer>
+		    <Bar>
+		        <contentRight>
+		            <Button id="create_bt"
+		                	text="Create"
+		                	icon="sap-icon://create"
+		                	press="handleCreate" />
+		            <Button id="submit_bt"
+		                	text="Submit"
+		                	icon="sap-icon://collapse-group" 
+		                	press="handleSubmit"/>
+		        </contentRight>
+		    </Bar>
+		</footer> 
+	</Page>
+</core:View>
